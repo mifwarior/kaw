@@ -9,7 +9,15 @@ import reducer from './reducers'
 import logger from 'redux-logger'
 import thunk from 'redux-thunk'
 
-const store = createStore(reducer,{items:[], bonus:[]},applyMiddleware(logger, thunk));
+const initialState = {
+  items:[], 
+  bonuses:[
+    "Грузоподъемность",
+	  "Добыча Золота",
+    "Добыча реcурсов"
+  ]
+}
+const store = createStore(reducer,initialState,applyMiddleware(logger, thunk));
 
 ReactDOM.render(
   <Provider store={store}>

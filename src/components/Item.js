@@ -1,46 +1,51 @@
 import React from 'react'
 import propTypes from 'prop-types'
 
-const Item = ({name, level, cost, materials, properties}) =>{
+const Item = ({item}) =>{
+
+  const {name, properties, materials} = item;
+
+  const propertiesList = properties.map((property, index)=>{
+    return (
+      <div key={index}>
+        <span>{property.type}:</span>
+        <span>{property.value}%</span>
+      </div>
+    )
+  });
+
+  const materialsList = materials.map((material, index)=>{
+    return (
+      <div key={index}>
+        <span>{material.type}:</span>
+      </div>
+    )
+  });
   return (
     <div>
-      <input className="itemName" defaultValue={name}/>
-      <div>
-        <span>Ур.</span>
-        <input defaultValue={level}/>
-      </div>
-      <div>
-        <span>Серебро</span>
-        <input defaultValue={cost}/>
-      </div>
-      
-      <div style={{display: "inline-block"}}>
-        <span>Материалы</span>
-        <div>
-          <Selector onSelect={console.log}>
-            <Select {...{
-              selectedIndex:0,
-              onSelect:console.log,
-              array:["one","two"]
-            }}/>
-          </Selector>
+      <fieldset>
+        <div>name</div>
+
+        <div style={{display: "inline-block"}}>
+          <span>Материалы:</span>
+          <div>
+            {propertiesList}
+          </div>
         </div>
 
-      </div>
-      <div>
-        <span>properties</span>
-        <input list="browsers" onChange={({target})=>console.dir(target)}/>
-      </div>
-      <datalist id="browsers">
-        <option value="Internet Explorer">asdf</option>
-        <option value="Internet Explorer2">asdf2</option>
-      </datalist>
+        <div style={{display: "inline-block"}}>
+          <span>Бонусы:</span>
+          <div>
+            {materialsList}
+          </div>
+        </div>
+      </fieldset>
     </div>
   )
 }
 
 Item.propTypes = {
-  name: propTypes.string.isRequired
+  item: propTypes.object.isRequired
 }
 
 export default Item;

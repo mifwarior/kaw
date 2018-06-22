@@ -16,6 +16,22 @@ class ItemEditor extends React.Component{
     this.propId = 0;
     
   }
+
+  createItemObject(){
+    const properties = this.properties.map((property)=>{
+      return {...property};
+    });
+    const materials = this.properties.map((material)=>{
+      return {...material};
+    });
+
+    return {
+      name: this.name,
+      properties,
+      materials
+    }
+  }
+
   addProperty(){
     this.properties.push({
       id:this.propId,
@@ -35,7 +51,7 @@ class ItemEditor extends React.Component{
   
   render(){
     const {addProperty, removeProperty} = this;
-    const {bonuses, materials} = this.props;
+    const {bonuses, materials, onAddItem} = this.props;
     const propList = this.properties.map((property, index)=>{
       return (
         <RemovableElement key={property.id} onRemove={(ev)=>removeProperty(property.id)}>
@@ -61,7 +77,7 @@ class ItemEditor extends React.Component{
       <fieldset>
         <p>
           <input defaultValue={this.name} onChange={({target})=>{this.name=target.value}}/>
-          <button>Добавить предмет</button>
+          <button onClick={()=>onAddItem(this.createItemObject())}>Добавить предмет</button>
         </p>
         
         <fieldset style={{display:"inline-block"}}>
@@ -82,6 +98,11 @@ class ItemEditor extends React.Component{
       </fieldset>
     )
   }
+}
+
+ItemEditor.propTypes = {
+  onAddItem: propTypes.func.isRequired,
+  bonuses: propTypes.array.isRequired
 }
 
 

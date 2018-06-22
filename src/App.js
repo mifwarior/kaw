@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import AddDataFile from './containers/AddDataFile'
-import ItemEditor from './components/ItemEditor'
+import ItemEditor from './containers/ItemEditor'
 
 const bonuses =[
 	"Грузоподъемность",
@@ -31,7 +31,7 @@ class App extends Component {
     return (
       <div className="App">
         <AddDataFile/>
-        <ItemEditor bonuses={bonuses}/>
+        <ItemEditor/>
       </div>
     );
   }

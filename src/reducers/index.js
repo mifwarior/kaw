@@ -4,5 +4,5 @@ import bonusReducer from './BonusReducer';
 
 export default combineReducers({
   items:AddItemReducer,
-  bonus:bonusReducer
+  bonuses:bonusReducer
 })
