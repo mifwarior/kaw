@@ -140,22 +140,7 @@ function GetString(bytes) {
 	return UTF8ArrayToString(bytes,0);
 }
 
-
-GetBytes("{Test Strinng с русским языком и 1234134!}");
-
-
-function Test() {
-	debugger;
-	var str = "{Test Strinng с русским языком и 1234134!}";
-	var bytes = GetBytes(str);
-	var resultStr = GetString(bytes);
-	console.log("Test success: " + (str === resultStr));
-	console.log(str, resultStr);
-}
-
-Test();
-
 // 6,0,1,1,0,0,0,65 - filter header, all others - json
 
- var arr = new Uint8Array([6,0,1,1,0,0,0,65,91,123,34,101,34,58,34,116,115,99,46,117,112,100,34,44,34,116,115,99,34,58,91,123,34,116,105,100,34,58,50,44,34,116,34,58,48,44,34,115,105,100,34,58,51,125,93,125,44,123,34,101,34,58,34,97,99,116,46,116,115,97,34,125,93]);
- console.log(GetString(arr));
+// var arr = new Uint8Array([6,0,1,1,0,0,0,65,91,123,34,101,34,58,34,116,115,99,46,117,112,100,34,44,34,116,115,99,34,58,91,123,34,116,105,100,34,58,50,44,34,116,34,58,48,44,34,115,105,100,34,58,51,125,93,125,44,123,34,101,34,58,34,97,99,116,46,116,115,97,34,125,93]);
+ //console.log(GetString(arr));
