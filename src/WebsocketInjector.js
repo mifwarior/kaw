@@ -39,7 +39,7 @@ Module.asmLibraryArg._SocketRecv = function(socketInstance, ptr, length){
 /*
 Uncompression:
           from 4 byte;
-          data to uncompress: from 4 to (len - 4);
+          data to uncompress: from 12 to (len - 12);
           uncompress type : zlib 
 		  
 		  compressionAndDecompressionTest(testData, Zlib.Deflate.CompressionType.NONE);
@@ -66,6 +66,45 @@ function Wrap(){
 	if(!window["Module"]) return;
 	if(window["FileReader"].injected) return;
 	var originFileReader = window["FileReader"];
+	
+	var enemyTiles = {"lv":null, "kid":54, "usr":{
+		"phn":{
+			"kid":22
+		}
+	}};
+	var worldUpdate = {
+		"e": "wld.upd",
+		"cs": null
+	};
+	function GetCoord(object){
+		return { x:object["lx"], y:object["ly"] };
+	}
+
+	function ValidateFunc(pattern, object){
+		try{
+		if(pattern === null && object !== undefined) return true;
+		if(pattern !== null && pattern === object) return true;
+		
+		if(typeof(object) !== "object") return false;
+		
+		for(var key in pattern){
+			if(!object[key] || !ValidateFunc(pattern[key], object[key])) { 
+				return false;
+			}
+		}
+		return true;
+		} catch(e){
+			console.error(e);
+			console.log(pattern, object);
+			return false;
+		}
+	}
+
+	function Find(pattern, object){
+		if(ValidateFunc(pattern, object)){
+			return GetCoord(object);	
+		}
+	}
 	
 	function WrappedFileReader(){
 		
@@ -228,28 +267,33 @@ function Wrap(){
 						var size = bytesToInt(array,4);
 						
 						if(compressed){
+													
 							try{
-								if(array.length > 60000){
-									navigator.clipboard.writeText(array.join(',')).then(function() {
-										console.log('Async: Copying to clipboard was successful!');
-									}, function(err) {
-										console.error('Async: Could not copy text: ', err);
-									});
-								}
-								var compressedArray = array.slice(4);
+								var compressedArray = array.slice(12);
 								var decompressed = new Zlib.Inflate(compressedArray).decompress();
 								var json = UTF8ArrayToString(decompressed,0);
-								console.log(size, array.length, json);
-								
+								var data = JSON.parse(json);
+								for(var i =0; data.length && i< data.length; i++){
 
+									if(ValidateFunc(worldUpdate, data[i])){
+										var tiles = data[i]["cs"];
+										for( var n = 0; tiles.length && n < tiles.length; n++)
+										{
+											var coords = Find(enemyTiles, tiles[n]);
+											if(coords) {
+												console.log(coords);
+											}			
+										}
+									}
+								}
 								
 							} catch(e) { 
-								console.log(e) 
+								console.error(e); 
 								console.log(array);
 							}
 						} else {
-							var json = UTF8ArrayToString(array,8);
-							console.log(size, array.length, json);
+							//var json = UTF8ArrayToString(array,8);
+							//console.log(size, array.length, json);
 						}
 						
 						
