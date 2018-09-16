@@ -52,6 +52,9 @@ Uncompression:
 
 */
 	
+window["coordList"] = {};
+window["coordsCount"] = 0;
+
 var intervalId = setInterval(function(){
 	if(window["Module"]){
 		clearInterval(intervalId);
@@ -67,10 +70,14 @@ function Wrap(){
 	if(window["FileReader"].injected) return;
 	var originFileReader = window["FileReader"];
 	
-	var enemyTiles = {"lv":null, "kid":54, "usr":{
-		"phn":{
-			"kid":22
-		}
+	var enemyTiles = {
+		"lv":null, 
+		"kid":null, 
+		"usr":{
+			"aln":{ aid:48324}, // alliance
+			/*"phn":{
+				"kid":null // kingdom
+			}*/
 	}};
 	var worldUpdate = {
 		"e": "wld.upd",
@@ -257,6 +264,16 @@ function Wrap(){
 	  function GetString(bytes) {
 		  return UTF8ArrayToString(bytes,0);
 	  }
+			
+			window["PrintCoords"] = function PrintCoords(){
+				var keys = Object.keys(window["coordList"]);
+				console.log(keys);
+			};
+			window["ClearCoords"] = function ClearCoords(){
+				window["coordList"] = {};
+				window["coordsCount"] = 0;
+			};
+			window["DumpLog"] = false;
 
 			var reader = new originFileReader();
 			reader.addEventListener("loadend", (function() {
@@ -279,9 +296,17 @@ function Wrap(){
 										var tiles = data[i]["cs"];
 										for( var n = 0; tiles.length && n < tiles.length; n++)
 										{
+											if(window["DumpLog"]){
+												console.log(tiles[n]);
+											}
 											var coords = Find(enemyTiles, tiles[n]);
 											if(coords) {
-												console.log(coords);
+												var key = coords.x +":"+coords.y;
+												if(!window["coordList"][key]){
+													window["coordList"][key] = coords;	
+													window["coordsCount"]++;
+													console.log("Found coords: "+ window["coordsCount"], coords);
+												}
 											}			
 										}
 									}

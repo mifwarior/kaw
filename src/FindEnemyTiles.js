@@ -28,10 +28,14 @@ var test = {
 	}
 }
 
-var enemyTiles = {"lv":null, "kid":54, "usr":{
-	"phn":{
-		"kid":22
-	}
+var enemyTiles = {
+	"lv":null, 
+	"kid":54, 
+	"usr":{
+		"aln":{ aid:48324},
+		"phn":{
+			"kid":null
+		}
 }};
 var worldUpdate = {
 	"e": "wld.upd",
