@@ -1,4 +1,12 @@
 
+function bytesToInt(bytes, offset, littleEndian) {
+  if (littleEndian) {
+    return (bytes[offset]) | (bytes[offset + 1] << 8) | (bytes[offset + 2] << 16) | (bytes[offset + 3] << 24);
+  } else {
+    return (bytes[offset] << 24) | (bytes[offset + 1] << 16) | (bytes[offset + 2] << 8) | (bytes[offset + 3]);
+  }
+}
+
 function stringToUTF8Array(str, outU8Array, outIdx, maxBytesToWrite) {
   if (!(maxBytesToWrite > 0)) // Parameter maxBytesToWrite is not optional. Negative values, 0, null, undefined and false each don't write out any bytes.
     return 0;
@@ -54,7 +62,7 @@ function stringToUTF8Array(str, outU8Array, outIdx, maxBytesToWrite) {
   return outIdx - startIdx;
 }
 
-       
+
 function lengthBytesUTF8(str) {
   var len = 0;
   for (var i = 0; i < str.length; ++i) {
@@ -79,13 +87,13 @@ function lengthBytesUTF8(str) {
   return len;
 }
 
-function GetBytes(str){
-	var len = lengthBytesUTF8(str);
-	var array = new Uint8Array(len);
-	
-	var len2 = stringToUTF8Array(str, array, 0, len + 1);
-	console.log(len2);
-	return array;
+function GetBytes(str) {
+  var len = lengthBytesUTF8(str);
+  var array = new Uint8Array(len);
+
+  var len2 = stringToUTF8Array(str, array, 0, len + 1);
+  console.log(len2);
+  return array;
 }
 
 
@@ -94,7 +102,7 @@ function UTF8ArrayToString(u8Array, idx) {
   var endPtr = idx;
   // TextDecoder needs to know the byte length in advance, it doesn't stop on null terminator by itself.
   // Also, use the length info to avoid running tiny strings through TextDecoder, since .subarray() allocates garbage.
-  while (u8Array[endPtr]) ++endPtr;
+  while (u8Array[endPtr])++endPtr;
 
   if (endPtr - idx > 16 && u8Array.subarray && UTF8Decoder) {
     return UTF8Decoder.decode(u8Array.subarray(idx, endPtr));
@@ -137,7 +145,7 @@ function UTF8ArrayToString(u8Array, idx) {
 }
 // bytes : Uint8Array
 function GetString(bytes) {
-	return UTF8ArrayToString(bytes,0);
+  return UTF8ArrayToString(bytes, 0);
 }
 
 // 6,0,1,1,0,0,0,65 - filter header, all others - json

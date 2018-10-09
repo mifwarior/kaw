@@ -1,4 +1,4 @@
-
+/*
 var test = {
 	bst: [], 
 	cid: 8,
@@ -41,7 +41,7 @@ var worldUpdate = {
 	"e": "wld.upd",
 	"cs": null
 };
-
+*/
 function GetCoord(object){
 	return { x:object["lx"], y:object["ly"] };
 }
@@ -65,7 +65,3 @@ function Find(pattern, object){
 		return GetCoord(object);	
 	}
 }
-
-console.log(Find(enemyTiles, test))
-console.log(Find(worldUpdate, test))
-console.log(Find(enemyTiles, {}))
