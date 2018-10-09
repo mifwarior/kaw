@@ -59,16 +59,10 @@ class Core {
     }
   }
 
-  subscribe(eventName, module) {
-    if(this.modules[eventName]) {
-      this.modules[eventName] = [];
-    }
-    var arr = this.modules[eventName];
-  }
-
   processCommand(data, compressed) {
     for (var i = 0; data.length && i < data.length; i++) {
-      this.modules[data["e"]]
+      var event = data[i];
+      this.modules[event["e"]].process(event);
     }
   }
 }
