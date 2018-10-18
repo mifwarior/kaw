@@ -3,6 +3,7 @@ import EventBus from './EventBus'
 class Composite extends EventBus {
 
   constructor() {
+    super();
     this.children = [];
     this.parent = null;
   }
