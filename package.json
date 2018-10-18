@@ -19,11 +19,14 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "test-inject": "jest",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
-    "gulp-minify": "^3.1.0"
+    "gulp-minify": "^3.1.0",
+    "jest": "^23.6.0",
+    "jest-cli": "^23.6.0"
   }
 }

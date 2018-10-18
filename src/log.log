@@ -1,0 +1,19 @@
+/// Move ------------------------------------------------------------------------------
+
+//Move to 285 487
+[{"e":"mmb.upd","mmb":[{"s":"","on":true,"rid":3,"v":1288.9618189,"usr":{"uid":2520782,"fn":"1 Upkto","ph":"https://cdn01.x-plarium.com/browser/content/portal/stormfall/avatars/21.jpg","pwr":253426340.0,"vl":16,"lcn":{"lid":3,"mlk":0,"cid":1,"lv":26,"lx":285,"ly":487,"ln":"Град","kid":54,"sid":1},"aln":{"aid":31058,"an":"ВОЛЬНЫЙ ГОРОД","ag":"6;4;6;0","at":"TOR7","al":"ru","cty":{"kid":54,"x":282,"y":486,"l":2,"r":6,"g":true}},"fid":1}}]},{"e":"itm.upd","itm":[{"iid":9,"c":14}]},{"e":"pop.add","t":49,"cid":1,"x":285,"y":487},{"e":"aln.upd","aln":{"cty":{"kid":54,"x":282,"y":486,"l":2,"g":true}}},{"e":"cty.cod","cid":1,"kid":54,"x":285,"y":487},{"e":"act.ctp"}]
+
+[{"e":"lcn.upd","cs":[{"lid":3,"lx":285,"ly":487,"kid":54,"ln":"Град","cid":1,"ft":1498763589,"did":0,"dt":1503275997,"sid":1,"st":1537286814,"usr":{"uid":2520782,"fn":"1 Upkto","ph":"https://cdn01.x-plarium.com/browser/content/portal/stormfall/avatars/21.jpg","cl":26,"pwr":253426340.0,"vl":16,"fid":1,"aln":{"aid":31058,"n":"ВОЛЬНЫЙ ГОРОД","g":"6;4;6;0","t":"TOR7","l":"ru"}},"bst":[{"bid":6,"t":1536098183,"st":1535550983}]}]},{"e":"lcw.upd","wl":[]},{"e":"lcn.upd","cs":[{"lid":1,"lx":284,"ly":486,"kid":54}]},{"e":"lcw.upd","wl":[]}]
+
+//Move to 284 486
+[{"e":"mmb.upd","mmb":[{"s":"","on":true,"rid":3,"v":1297.3054537,"usr":{"uid":2520782,"fn":"1 Upkto","ph":"https://cdn01.x-plarium.com/browser/content/portal/stormfall/avatars/21.jpg","pwr":253426340.0,"vl":16,"lcn":{"lid":3,"mlk":0,"cid":1,"lv":26,"lx":284,"ly":486,"ln":"Град","kid":54,"sid":1},"aln":{"aid":31058,"an":"ВОЛЬНЫЙ ГОРОД","ag":"6;4;6;0","at":"TOR7","al":"ru","cty":{"kid":54,"x":282,"y":486,"l":2,"r":6,"g":true}},"fid":1}}]},{"e":"itm.upd","itm":[{"iid":9,"c":13}]},{"e":"pop.add","t":49,"cid":1,"x":284,"y":486},{"e":"aln.upd","aln":{"cty":{"kid":54,"x":282,"y":486,"l":2,"g":true}}},{"e":"cty.cod","cid":1,"kid":54,"x":284,"y":486},{"e":"act.ctp"}]
+
+[{"e":"lcn.upd","cs":[{"lid":3,"lx":284,"ly":486,"kid":54,"ln":"Град","cid":1,"ft":1498763589,"did":0,"dt":1503275997,"sid":1,"st":1537286814,"usr":{"uid":2520782,"fn":"1 Upkto","ph":"https://cdn01.x-plarium.com/browser/content/portal/stormfall/avatars/21.jpg","cl":26,"pwr":253426340.0,"vl":16,"fid":1,"aln":{"aid":31058,"n":"ВОЛЬНЫЙ ГОРОД","g":"6;4;6;0","t":"TOR7","l":"ru"}},"bst":[{"bid":6,"t":1536098183,"st":1535550983}]}]},{"e":"lcw.upd","wl":[]},{"e":"lcn.upd","cs":[{"lid":1,"lx":285,"ly":487,"kid":54}]},{"e":"lcw.upd","wl":[]}]
+
+
+/// DIG --------------------------------------------------
+
+//Tile -> town
+[{"e":"lcn.upd","cs":[{"lid":7,"lx":289,"ly":484,"kid":54,"lv":6,"md":0,"mt":"0001-01-01T00:00:00Z","ms":0.0,"rq":813098.0,"mid":"00000000-0000-0000-0000-000000000000","dt":"9999-12-31T23:59:59.9999999Z","dts":253402300800,"tid":0,"cid":0,"bst":[]}]},{"e":"lcw.upd","wl":[]}]
+bugTracker.js?v=1:1 [{"e":"mal.add","mal":[{"mkk":"5b8909d07c8cbb1ad8e98b0f","tid":9,"gid":1,"u":true,"tm":1535707600,"usr":{"uid":0,"fn":"","ph":"","pwr":0.0,"vl":0,"lcn":{"lid":7,"mlk":0,"cid":0,"lv":6,"lx":289,"ly":484,"ln":"","kid":54,"sid":0},"aln":{"aid":0,"an":"","ag":"","at":"","al":""},"fid":0},"atc":{"pid":1,"mid":"8ade367d-f239-40b3-a989-076e814106c6","usr":{"uid":2520782,"fn":"1 Upkto","ph":"https://cdn01.x-plarium.com/browser/content/portal/stormfall/avatars/21.jpg","pwr":253426340.0,"vl":16,"lcn":{"lid":3,"mlk":0,"cid":1,"lv":26,"lx":284,"ly":486,"ln":"Град","kid":54,"sid":1},"aln":{"aid":31058,"an":"ВОЛЬНЫЙ ГОРОД","ag":"6;4;6;0","at":"TOR7","al":"ru","cty":{"kid":54,"x":282,"y":486,"l":2,"r":6,"g":true}},"fid":1}},"ac":0,"mc":false,"g":0.0}]},{"e":"act.mpi"}]
+
