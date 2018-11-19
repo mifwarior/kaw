@@ -10,13 +10,13 @@ module.exports = {
     dir: 'inject-build'
   },
   plugins: [
-    //node(),
-    //common(),
-    compiler({
+    node(),
+    common(),
+    /*compiler({
       //compilation_level: 'SIMPLE',
       compilation_level: 'ADVANCED',
       warning_level: 'QUIET',
       jscomp_off: ['checkVars']
-    }),
+    }),*/
   ],
 };
