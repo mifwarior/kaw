@@ -4,6 +4,7 @@ import EventDispatch from './components/EventDispatch'
 import WorldUpdate from './components/WorldUpdate'
 import ZlibHolder from './utils/zlib'
 import {UTF8ArrayToString} from './utils/UTF8Encoding'
+import AllianceList from './components/AllianceList';
 
 var Zlib = ZlibHolder["Zlib"];
 var composite = new Composite();
@@ -11,6 +12,7 @@ var eventDispatch = new EventDispatch();
 
 composite.addComponent(eventDispatch);
 composite.addComponent(new WorldUpdate());
+composite.addComponent(new AllianceList());
 
 function Init() {
 
@@ -27,7 +29,7 @@ function Init() {
         var decompressed = new Zlib.Inflate(compressedArray).decompress();
         var json = UTF8ArrayToString(decompressed, 0);
         eventDispatch.parse(json, compressed);
-
+        
       } else {
         var json = UTF8ArrayToString(array, 8);
         eventDispatch.parse(json, compressed);
