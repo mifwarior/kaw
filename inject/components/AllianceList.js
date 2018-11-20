@@ -21,7 +21,7 @@ export default class AllianceList extends Component {
       var user = members[i].usr;
       var l = user.lcn;
       var home = l.kid === kid;
-      console.log("%c"+user.fn + " %c" + l.lx + ":" + l.ly + " %cPower: " + user.pwr, (home?"color:red;":"color:green;"), "color:blue;", "color:black;");
+      console.log("%c"+user.fn + " %c" + l.lx + ":" + l.ly + " %cPower: " + Math.floor(user.pwr / 1000000)+"mln", (home?"color:red;":"color:green;"), "color:blue;", "color:black;");
     }
     
   }

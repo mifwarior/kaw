@@ -38,7 +38,8 @@ class WorldUpdate extends Component {
   }
 
   printTown(town) {
-    console.log("Упадет через: %c" + town.elapsed + " Координаты: %c" + town.x + ":" + town.y + " Орден: " + town.aln + " Имя: " + town.name, "color:red;", "color:blue;");
+    var pwr = Math.floor(town.pwr / 1000000);
+    console.log("Упадет через: %c" + town.elapsed + " %cКоординаты: %c" + town.x + ":" + town.y + " %cОрден: " + town.aln + " Имя: " + town.name + " Могучка:" + pwr +"млн",  "color:red;", "color:black;", "color:blue;", "color:black;");
   }
 
   worldUpdate(event) {
@@ -65,7 +66,8 @@ class WorldUpdate extends Component {
         alnId: tile.usr.aln.aid,
         x: tile.lx,
         y: tile.ly,
-        id: tile.usr.uid
+        id: tile.usr.uid,
+        pwr: tile.usr.pwr
       };
 
       if (tile.usr && tile.usr.fn) {
@@ -81,7 +83,7 @@ class WorldUpdate extends Component {
 
           var elapsed = new Date(shiled.t * 1000 - Date.now()) / 1000;
           town.elapsedTime = elapsed;
-          town.elapsed = ((elapsed / 3600) | 0) + " h " + (((elapsed % 3600) / 60) | 0) + " m";
+          town.elapsed = ((elapsed / 3600) | 0) + "h " + (((elapsed % 3600) / 60) | 0) + "m";
         }
       }
       if (this.alnFilter) {

@@ -12,10 +12,10 @@ class EventDispatch extends Component{
   }
 
   parse(json) {
-    if(this.jsonLog) {
-      console.log(json)
-    }
     var events = JSON.parse(json);
+    if(this.jsonLog) {
+      console.log(events)
+    }
     for(var i = 0; i < events.length; i++) {
       var event = events[i];
       var type = event["e"];
