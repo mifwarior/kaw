@@ -2,8 +2,10 @@ import Composite from './components/Composite'
 import EventDispatch from './components/EventDispatch'
 
 import WorldUpdate from './components/WorldUpdate'
+import ZlibHolder from './utils/zlib'
+import {UTF8ArrayToString} from './utils/UTF8Encoding'
 
-var Zlib = window["Zlib"];
+var Zlib = ZlibHolder["Zlib"];
 var composite = new Composite();
 var eventDispatch = new EventDispatch();
 
@@ -17,21 +19,18 @@ function Init() {
     if (array[0] !== 6) return;
 
     var compressed = ((array[1] & 1) != 0);
-
+    
     try {
-
       if (compressed) {
-
         var compressedArray = array.slice(12);
+        
         var decompressed = new Zlib.Inflate(compressedArray).decompress();
         var json = UTF8ArrayToString(decompressed, 0);
-        var data = JSON.parse(json);
-        eventDispatch.parse(data, compressed);
+        eventDispatch.parse(json, compressed);
 
       } else {
         var json = UTF8ArrayToString(array, 8);
-        var data = JSON.parse(json);
-        eventDispatch.parse(data, compressed);
+        eventDispatch.parse(json, compressed);
       }
     } catch (e) {
       console.error(e);
@@ -47,7 +46,7 @@ function Init() {
 
       function WrappedFileReader() {
         var reader = new originFileReader();
-        reader.addEventListener("load", parseCommand(reader.result));
+        reader.addEventListener("load", parseCommand);
         return reader;
       }
 
@@ -58,6 +57,7 @@ function Init() {
   }
 
   var intervalId = setInterval(function () {
+    console.log("Try Inject");
     if (window["Module"]) {
       clearInterval(intervalId);
       inject();

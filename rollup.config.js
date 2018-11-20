@@ -13,8 +13,8 @@ module.exports = {
     node(),
     common(),
     /*compiler({
-      //compilation_level: 'SIMPLE',
-      compilation_level: 'ADVANCED',
+      compilation_level: 'SIMPLE',
+      //compilation_level: 'ADVANCED',
       warning_level: 'QUIET',
       jscomp_off: ['checkVars']
     }),*/

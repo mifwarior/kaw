@@ -11,6 +11,7 @@ class EventBus {
       var keys = Object.keys(events);
       for(var i = 0; i < keys.length; i++) {
       
+        const key = keys[i];
         if(typeof events[key] === "function"){
           
           if(!this.events[key]) {
